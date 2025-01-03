@@ -1,4 +1,9 @@
+"use client"
+
 import Image from 'next/image'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 
 export default function Projects() {
   const projects = [
@@ -6,13 +11,13 @@ export default function Projects() {
       title: 'E-commerce Platform',
       description: 'Built a full-stack e-commerce platform using React, Node.js, and MongoDB.',
       link: 'https://github.com/yourusername/ecommerce-platform',
-      image: '/placeholder.svg?height=200&width=400',
+      image: ['/placeholder.svg?height=200&width=200', '/icons/github-logo.svg', '/icons/linkedin-logo.logo'],
     },
     {
       title: 'Weather App',
       description: 'Created a weather application using React and the OpenWeatherMap API.',
       link: 'https://github.com/yourusername/weather-app',
-      image: '/placeholder.svg?height=200&width=400',
+      image: ['/placeholder.svg?height=200&width=200', '/icons/github-logo.svg', '/icons/linkedin-logo.logo'],
     },
     // Add more projects as needed
   ]
@@ -22,30 +27,52 @@ export default function Projects() {
       <h2 className="text-2xl font-bold mb-4">Projects</h2>
       <div className="space-y-6">
         {projects.map((project, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl">
-            <div className="mb-4 overflow-hidden rounded-lg">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={400}
-                height={200}
-                className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
-              />
+          <Card key={index} className="flex overflow-hidden">
+            <div className="flex-grow">
+              <CardHeader>
+                <CardTitle className="text-card-title">{project.title}</CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button size="icon" className="rounded-full bg-black hover:bg-gray-800" asChild>
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Image
+                      src="/icons/arrow-right-solid.svg"
+                      alt="Arrow Right"
+                      width={16}
+                      height={16}
+                      className="block"
+                    />
+                  </a>
+                </Button>
+              </CardFooter>
             </div>
-            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-            <p className="text-gray-600 mb-4">{project.description}</p>
-            <a 
-              href={project.link} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
-            >
-              View Project
-            </a>
-          </div>
+            <CardContent className="p-0 w-1/3">
+              <Carousel className="w-full h-full">
+                <CarouselContent>
+                  {project.image.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative h-48 w-full">
+                        <Image
+                          src={image}
+                          alt={`${project.title} - Image ${index + 1}`}
+                          fill
+                          style={{ objectFit: 'cover' }}
+                          className="transition-transform duration-300 hover:scale-105"
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>
   )
 }
-

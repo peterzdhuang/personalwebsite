@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
   	extend: {
+		fontSize: {
+			'card-title': '18px', // Custom font size
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
