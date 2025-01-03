@@ -1,17 +1,16 @@
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import Resume from './Resume';
 
 export default function Sidebar() {
   return (
     <aside
-      className="w-[30%] bg-gray-100 p-6 flex flex-col justify-between sticky top-0 h-screen overflow-y-auto"
+      className="w-[30%] bg-gray-100 p-6 flex flex-col items-center justify-between sticky top-0 h-screen overflow-y-auto"
       style={{ fontFamily: 'HelveticaNeue, sans-serif', color: '#000' }}
     >
-      <div className="space-y-6">
+      <div className="flex flex-col items-center justify-center mb-3 h-full">
         {/* Header */}
-        <div>
+        <div className="text-center">
           <h1
-            className="text-6xl font-bold mb-2"
+            className="text-6xl font-bold"
             style={{ fontFamily: 'CaslonGraphique-Opti, sans-serif' }}
           >
             Peter Huang
@@ -19,34 +18,44 @@ export default function Sidebar() {
           <p className="text-lg text-gray-600">Fullstack Developer</p>
         </div>
 
-        <div>
-          <p className="mb-1 text-gray-600">peterzdhuang@gmail.com</p>
-          <div className="mt-4 flex items-center space-x-6">
+        {/* Contact Info */}
+        <div className="text-center">
+          
+          <p className="text-gray-600"><a href="mailto:petezdhuang@gmail.com" target="_blank">petezdhuang@gmail.com</a></p>
+          <div className="flex items-center justify-center space-x-6 mt-4">
             {/* LinkedIn Link */}
             <a
-              href="https://linkedin.com/in/yourprofile"
+              href="https://linkedin.com/in/peterzdhuang"
               target="_blank"
               rel="noopener noreferrer"
               className="text-black hover:underline flex items-center"
             >
-              <FaLinkedin className="mr-2 text-3xl" /> {/* Icon size increased */}
+              <FaLinkedin className="text-3xl" />
             </a>
             {/* GitHub Link */}
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/peterzdhuang"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-black  hover:underline flex items-center"
+              className="text-black hover:underline flex items-center"
             >
-              <FaGithub className="mr-2 text-3xl" /> {/* Icon size increased */}
+              <FaGithub className="text-3xl" />
+            </a>
+            {/* Resume Link */}
+            <a
+              href="/icons/cv.png" // Update with your resume link
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black hover:underline flex items-center"
+            >
+              <img
+                src="/icons/cv.png"
+                alt="Resume"
+                className="w-8 h-8"
+              />
             </a>
           </div>
         </div>
-      </div>
-
-      {/* Resume */}
-      <div className="mt-auto">
-        <Resume />
       </div>
     </aside>
   );

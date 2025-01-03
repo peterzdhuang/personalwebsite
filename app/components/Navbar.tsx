@@ -1,56 +1,67 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
+import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
-  const [activeSection, setActiveSection] = useState('experience')
+  const [activeButton, setActiveButton] = useState<string | null>(null)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const experienceSection = document.getElementById('experience')
-      const projectsSection = document.getElementById('projects')
-      
-      if (experienceSection && projectsSection) {
-        const scrollPosition = window.scrollY + 100 // Offset for navbar height
-
-        if (scrollPosition >= projectsSection.offsetTop) {
-          setActiveSection('projects')
-        } else {
-          setActiveSection('experience')
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const handleClick = (buttonName: string) => {
+    setActiveButton(buttonName)
+  }
 
   return (
-    <nav className="sticky top-0 bg-white shadow-md z-10">
+    <nav className="sticky top-0 bg-white z-10 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-center h-16">
-          <div className="flex space-x-8">
-            <Link 
-              href="#experience" 
-              className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                activeSection === 'experience' 
-                  ? 'border-blue-500 text-gray-900' 
-                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+        <div className="flex justify-center">
+          <div className="flex space-x-4">
+            <Button
+              variant="ghost"
+              className={`relative font-futura-cyrillic text-lg ${
+                activeButton === 'experience' ? 'text-[#32302f]' : 'text-[#615e5c] hover:text-[#32302f]'
               }`}
+              asChild
+              onClick={() => handleClick('experience')}
             >
-              Experience
-            </Link>
-            <Link 
-              href="#projects" 
-              className={`inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium ${
-                activeSection === 'projects' 
-                  ? 'border-blue-500 text-gray-900' 
-                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700'
+              <Link href="#experience">
+                Experience
+                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#32302f] transition-opacity ${
+                  activeButton === 'experience' ? 'opacity-100' : 'opacity-0'
+                }`} />
+              </Link>
+            </Button>
+            
+            <Button
+              variant="ghost"
+              className={`relative font-futura-cyrillic text-lg ${
+                activeButton === 'education' ? 'text-[#32302f]' : 'text-[#615e5c] hover:text-[#32302f]'
               }`}
+              asChild
+              onClick={() => handleClick('education')}
             >
-              Projects
-            </Link>
+              <Link href="#education">
+                Education
+                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#32302f] transition-opacity ${
+                  activeButton === 'education' ? 'opacity-100' : 'opacity-0'
+                }`} />
+              </Link>
+            </Button>
+            <Button
+              variant="ghost"
+              className={`relative font-futura-cyrillic text-lg ${
+                activeButton === 'projects' ? 'text-[#32302f]' : 'text-[#615e5c] hover:text-[#32302f]'
+              }`}
+              asChild
+              onClick={() => handleClick('projects')}
+            >
+              <Link href="#projects">
+                Projects
+                <span className={`absolute bottom-1 left-1/2 transform -translate-x-1/2 w-1/2 h-0.5 bg-[#32302f] transition-opacity ${
+                  activeButton === 'projects' ? 'opacity-100' : 'opacity-0'
+                }`} />
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
