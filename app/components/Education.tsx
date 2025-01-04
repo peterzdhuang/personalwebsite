@@ -1,18 +1,11 @@
 export default function Education() {
     const education = [
       {
-        degree: 'Master of Science in Computer Science',
-        school: 'Tech University',
-        period: '2015 - 2017',
-        description: 'Specialized in Web Technologies and Artificial Intelligence.',
-      },
-      {
         degree: 'Bachelor of Science in Computer Science',
-        school: 'State University',
-        period: '2011 - 2015',
-        description: 'Focused on Software Engineering and Database Management.',
+        school: 'University of Alberta',
+        period: '2022 - Present',
+        description: 'Specialized in Software Engineering',
       },
-      // Add more education entries as needed
     ];
   
     return (
