@@ -10,42 +10,42 @@ export default function Projects() {
     {
       title: "Cross Platform Budget Tracker",
       description: "A personal cross-platform budget tracker for logging daily spendings and visualizing expenditure trends",
-      link: "https://github.com/yourusername/ecommerce-platform",
-      image: ['/images/budget2.png'],
+      link: "https://github.com/peterzdhuang/BudgetTracker",
+      image: [],
       tech: ["Ruby on Rails", "Kotlin", "AWS", "Postgres", "Jetpack Compose"]
     },
     {
       title: "NoteHub",
       description: "NoteHub is a revolutionary platform connecting students across 250+ universities to effortlessly upload, access, and share study notes, fostering collaboration and academic success",
-      link: "https://github.com/yourusername/weather-app",
-      image: ['/images/budget2.png','/images/budget3.png'],
+      link: "https://github.com/peterzdhuang/NoteApp",
+      image: [],
       tech: ["React", "NextJS", "Azure", "NodeJS"]
     },
     {
       title: "Triangle",
       description: "Triangle transforms the dining experiences by allowing restaurant owners create and manage digital menus while enabling customers to scan QR codes to instantly view menus and place orders with ease",
-      link: "https://github.com/yourusername/weather-app",
+      link: "https://github.com/peterzdhuang/Triangle",
       image: [],
       tech: ["Springboot", "Java", "React", "NextJS", "Postgres"]
     },
     {
       title: "Event Manager",
       description: "An innovative event management app that empowers users to join events, organizers to create and manage them effortlessly, and admins to oversee activities via a centralized dashboard, revolutionizing event coordination",
-      link: "https://github.com/yourusername/weather-app",
+      link: "https://github.com/CMPUT301F24breeze1/LavenderBreeze",
       image: [],
       tech: ["Java", "Firebase", "UML", "CI/CD"]
     },
     {
       title: "Business Backend",
       description: "A cutting-edge microservice-based application, featuring a distributed architecture with service registry, API gateway, configuration management, and business-specific services, delivering scalable solutions with real-time monitoring via Zipkin",
-      link: "https://github.com/yourusername/weather-app",
+      link: "https://github.com/peterzdhuang/microservice",
       image: [],
       tech: ["Springboot", "Microservices", "Docker", "Zipkin"]
     },
     {
       title: "Real-time Chat App",
       description: "A lightning-fast chat application powered by WebSockets for real-time messaging, PostgreSQL for reliable message storage, and a sleek Next.js frontend for a seamless user experience, ensuring instant and persistent communication",
-      link: "https://github.com/yourusername/weather-app",
+      link: "https://github.com/peterzdhuang/chat-app-springboot",
       image: [],
       tech: ["Springboot", "Docker", "Websocket", "Postgres", "NextJS"]
     }
@@ -92,7 +92,7 @@ export default function Projects() {
               <CarouselContent>
                 {project.image.map((image, index) => (
                   <CarouselItem key={index}>
-                    <div className="relative w-full h-[300px] md:h-[400px]">
+                    <div className="relative w-full aspect-w-16 aspect-h-9">
                       <Image
                         src={image}
                         alt={`${project.title} - Image ${index + 1}`}
@@ -107,6 +107,7 @@ export default function Projects() {
             </Carousel>
           </CardContent>
         </Card>
+        
         
         
         ))}

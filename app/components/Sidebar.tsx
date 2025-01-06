@@ -43,7 +43,7 @@ export default function Sidebar() {
             </a>
             {/* Resume Link */}
             <a
-              href="/icons/cv.png" // Update with your resume link
+              href="https://drive.google.com/file/d/1jqqTWdUA-PG9OOFcV6nsNo3hpmDn_oA7/view?usp=sharing" // Update with your resume link
               target="_blank"
               rel="noopener noreferrer"
               className="text-black hover:underline flex items-center"
