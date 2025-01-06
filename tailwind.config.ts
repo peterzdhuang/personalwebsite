@@ -61,5 +61,8 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"), // Your existing plugin
+    require("@tailwindcss/aspect-ratio"), // Add the aspect-ratio plugin
+  ],
 } satisfies Config;
