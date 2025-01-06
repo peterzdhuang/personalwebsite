@@ -1,17 +1,25 @@
 export default function Experience() {
   const experiences = [
     {
-      title: 'Senior Web Developer',
-      company: 'Tech Corp',
-      period: 'Jan 2020 - Present',
-      description: 'Led a team of developers in creating responsive web applications using React and Node.js.',
+      title: 'Web Developer/VP Logistics',
+      company: 'Schulich Ignite',
+      period: 'Sept 2023 - Present',
+      description: [
+        'Revamped the team page with a fresh design to enhance UI/UX, improving aesthetics while maintaining the website’s overall performance through targeted updates',
+        'Taught 300+ students the fundamentals of data structures, object-oriented programming (OOP), and web development',
+      ],
     },
     {
-      title: 'Web Developer',
-      company: 'Digital Solutions Inc.',
-      period: 'Jun 2017 - Dec 2019',
-      description: 'Developed and maintained client websites using HTML, CSS, and JavaScript.',
+      title: 'Software Intern',
+      company: 'CCCCA',
+      period: 'May 2024 - Aug 2024',
+      description: [
+        'Refactored the backend to support new AI translation and audio recording features',
+        'streamlining data inputs while enhancing functionality for 500+ catalogue items',
+        'Designed and developed a dynamic mobile app for a museum using React Native, improving user engagement, accessibility, and overall visitor experience',
+      ],
     },
+
   ];
 
   return (
@@ -34,12 +42,23 @@ export default function Experience() {
                 ></path>
               </svg>
             </span>
-            <div className="p-4 bg-white rounded-lg border border-gray-200 shadow-md transition-all duration-300 hover:shadow-lg hover:border-gray-300 hover:bg-gray-50">
-            <h3 className="text-lg font-semibold text-gray-900">{exp.title}</h3>
-            <time className="block mb-2 text-sm font-normal leading-none text-gray-400">{exp.period}</time>
-            <p className="mb-4 text-base font-normal text-gray-500">{exp.company}</p>
-            <p className="text-base font-normal text-gray-500">{exp.description}</p>
-          </div>
+            <div className="p-4 bg-white rounded-lg border border-gray-200 shadow-md hover:shadow-lg">
+              <div className="flex justify-between items-center">
+                <h3 className="text-lg font-semibold text-gray-900">{exp.title}</h3>
+                <h3 className="text-sm font-normal" style={{ color: '#5e794e' }}>{exp.company}</h3>
+              </div>
+              <time
+                className="block mb-2 text-sm font-normal leading-none"
+                style={{ color: '#32302f' }}
+              >
+                {exp.period}
+              </time>
+              <ul className="list-disc pl-5 text-sm font-normal" style={{ color: '#32302f' }}>
+                {exp.description.map((point, i) => (
+                  <li key={i}>{point}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         ))}
       </div>
